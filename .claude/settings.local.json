@@ -1,0 +1,40 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e:*)",
+      "Bash(npm install)",
+      "Bash(node test-db-connection.js:*)",
+      "Bash(npm run dev:*)",
+      "Bash(curl:*)",
+      "Bash(node activate-user.js:*)",
+      "Bash(node create-test-data.js:*)",
+      "Bash(node check-user.js:*)",
+      "Bash(node set-password.js:*)",
+      "Bash(node test-api.js:*)",
+      "Bash(node test-registration.js:*)",
+      "Bash(node test-auto-activation.js:*)",
+      "Bash(timeout:*)",
+      "Bash(tasklist:*)",
+      "Bash(findstr:*)",
+      "Bash(taskkill:*)",
+      "Bash(node src/server.js:*)",
+      "Bash(node api/kill-port.js:*)",
+      "Bash(node:*)",
+      "Bash(del C:UsersvzamoDesktopSaaS-SMS-Calendarclientkill-port.js)",
+      "Bash(netstat:*)",
+      "Bash(del \"C:\\Users\\vzamo\\Desktop\\SaaS-SMS-Calendar\\client\\src\\pages\\Team.jsx\")",
+      "Bash(del \"C:\\Users\\vzamo\\Desktop\\SaaS-SMS-Calendar\\api\\test-availability.js\")",
+      "Bash(npm install:*)",
+      "Bash(dir \"C:\\Users\\vzamo\\Desktop\\SaaS-SMS-Calendar\")",
+      "Bash(dir /s \"C:\\Users\\vzamo\\Desktop\\SaaS-SMS-Calendar\\client\\src\")",
+      "Bash(dir:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git branch:*)",
+      "Bash(git remote add:*)",
+      "Bash(git push:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

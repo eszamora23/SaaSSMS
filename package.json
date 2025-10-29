@@ -1,0 +1,32 @@
+{
+  "name": "saas-sms-calendar",
+  "version": "1.0.0",
+  "description": "SaaS SMS Calendar - Multi-tenant booking and appointment system",
+  "scripts": {
+    "prekill": "node api/kill-port.js 5000 && node client/kill-port.js 3000",
+    "dev": "npm run prekill && concurrently \"npm run dev:api\" \"npm run dev:client\" --names \"API,CLIENT\" --prefix-colors \"cyan,magenta\"",
+    "dev:api": "cd api && npm run dev",
+    "dev:client": "cd client && npm run dev",
+    "install:all": "npm install && cd api && npm install && cd ../client && npm install",
+    "build": "cd api && npm run build && cd ../client && npm run build",
+    "start": "npm run prekill && concurrently \"npm run start:api\" \"npm run start:client\" --names \"API,CLIENT\"",
+    "start:api": "cd api && npm start",
+    "start:client": "cd client && npm run preview",
+    "clean": "rimraf node_modules api/node_modules client/node_modules",
+    "test": "cd api && npm test",
+    "lint": "cd api && npm run lint && cd ../client && npm run lint"
+  },
+  "keywords": [
+    "saas",
+    "sms",
+    "calendar",
+    "booking",
+    "appointments",
+    "multi-tenant"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
