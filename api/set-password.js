@@ -10,27 +10,25 @@ const { User } = require('./src/models');
 async function setPassword() {
   try {
     await mongoose.connect(process.env.MONGODB_URI);
-    console.log('✅ Connected to MongoDB');
+    console.log('✅ Connected to MongoDB\n');
 
-    const email = 'test@test.com';
-    const password = '12345678';
+    const password = 'demo123';
 
-    const user = await User.findOne({ email });
+    const users = await User.find({});
+    console.log(`Found ${users.length} users. Setting password to "demo123" for all...\n`);
 
-    if (!user) {
-      console.log(`❌ User not found: ${email}`);
-      return;
+    for (const user of users) {
+      // Set raw password - the pre-save hook will hash it
+      user.passwordHash = password;
+      await user.save();
+      console.log(`✅ Password set for: ${user.email} (${user.role})`);
     }
 
-    // Set password (will be hashed by pre-save hook)
-    user.passwordHash = password;
-    await user.save();
-
-    console.log(`✅ Password set for user: ${user.email}`);
-    console.log(`   Email: ${email}`);
-    console.log(`   Password: ${password}`);
-    console.log(`   Status: ${user.status}`);
-    console.log(`   Role: ${user.role}`);
+    console.log('\n✅ All passwords have been set to: demo123\n');
+    console.log('You can now login with:');
+    users.forEach(user => {
+      console.log(`  - ${user.email} / demo123`);
+    });
 
   } catch (error) {
     console.error('❌ Error:', error.message);
